@@ -26,5 +26,5 @@ Cell.prototype.aliveNeighborCount = function(){
 };
 
 var makeKey = function( x, y, xOffset, yOffset){
-	return (x + xOffset) + ":" + (y + yOffset)''
+	return (x + xOffset) + ":" + (y + yOffset);
 };
