@@ -1,0 +1,94 @@
+body{
+  background-color: #FFFFFF;
+}
+
+#container{
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 20px;}
+
+#board{
+  background-color: #F2FFC7;
+  width: 80vw;
+  margin: 0 auto;
+  text-align: center;
+  outline: none;
+  border-color: #A6FFAA;
+  box-shadow: 0 0 30px #A6FFAA; 
+  transition: opacity 0.9s linear;
+}
+
+#board.invisible{
+  opacity: 0;
+}
+
+#board.invisible.hidden{
+  display: none;
+}
+
+#input-container{
+  width: 80%;
+  margin: 0 auto;
+  border-color: #A6FFAA;
+  box-shadow: 0 0 30px #A6FFAA; 
+  border-radius: 15px;
+  transition: opacity 0.9s linear;
+}
+
+#input-container.invisible{
+  opacity: 0;
+}
+
+#input-container.invisible.hidden{
+  display: none;
+}
+
+#input-container > h2{
+  text-align: center;
+  padding-top: 5px;
+  font-family: 'Nova Square', cursive;
+}
+
+#cell{
+  background-color: #0586FF;
+}
+
+form#settings{
+  width: 50%;
+  margin: 0 auto;
+}
+
+form#settings > div{
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+}
+
+form#settings input{
+  font-size: .75em;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form#settings label{
+  width: 100%;
+  font-size: .75em;
+  display: block;
+}
+
+form#settings input:focus {
+  outline: none;
+  text-align: center;
+  border-color: #A6FFAA;
+  box-shadow: 0 0 7px #A6FFAA;
+  background-color: #FFFFFF;
+}
+
+form#settings input:active {
+  outline: none;
+  text-align: center;
+  border-color: #A6FFAA;
+  box-shadow: 0 0 7px #A6FFAA;
+  background-color: #FFFFFF;
+}
