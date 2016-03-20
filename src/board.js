@@ -13,7 +13,7 @@ Board.prototype.assignNeighborCells = function(cell){
 	var self = this;
 	var keys = cell.neighborKeys();
 
-	keys.forEach(function(key)){
+	keys.forEach(function(key){
 		cell.neighbors.push(this.coordinates[key]);
 	}.bind(self));
 
