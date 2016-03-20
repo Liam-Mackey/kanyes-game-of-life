@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script src='./src/inputParser.js' ></script>
+    <script src='./src/cell.js' ></script>
+    <script src='./src/board.js' ></script>
+    <script src='./src/game.js' ></script>
+    <script src='./src/view.js' ></script>
+    <script src='./src/boardGenerator.js' ></script>
+    <script src='./src/main.js' ></script>
+  </head>
+  <body>
+    <div id='container'>
+        <div id='board' class='invisible hidden'>
+          <canvas id='game-board'>
+          </canvas>
+        </div>
+        <div id='input-container'>
+          <h2> Conway's Game of Life </h2>
+          <form id='settings'>
+            <div>
+              <label for='rowCount'>Number of Rows</label>
+              <input type='number' id='rowCount' name='rowCount' min='0' value='50'/>
+            </div>
+            <div>
+              <label for='columnCount'>Number of Columns</label>
+              <input type='number' id='columnCount' name='columnCount' min='0' value='50' />
+            </div>
+            <div>
+              <label for='timeout'>Tick Interval (ms)</label>
+              <input type='number' id='timeout' name='timeout' min='0' max='5000' value='100' />
+            </div>
+            <div>
+              <label for='initial'>Initial Board</label>
+              <input type='text' id='initial' name='initial' value='Random' disabled='true'>
+            </div>
+            <div>
+              <input type='submit' value='Go!' />
+            </div>
+          </form> 
+        </div>
+      </div>
+    </div>
+    <div id='cell'></div>
+  </body>
+</html>
