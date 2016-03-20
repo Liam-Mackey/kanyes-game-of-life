@@ -30,7 +30,8 @@ View.prototype.setPixleSize = function(){
 
 View.prototype.paintCells = function(){
   var self = this;
-
+  var img = new Image();
+  img.src = "http://www.eurweb.com/wp-content/uploads/2012/04/kanye-west-19.jpg"
   var bgColor = getComputedStyle( this.cellDiv ).getPropertyValue('background-color');
   
   this.clear();
@@ -39,7 +40,8 @@ View.prototype.paintCells = function(){
 
   this.game.cells.forEach( function(cell){
     if( cell.isAlive ){
-      this.context.fillRect( cell.x * this.pixelWidth, 
+      this.context.drawImage( img,
+                             cell.x * this.pixelWidth, 
                              cell.y * this.pixelHeight, 
                              this.pixelWidth, 
                              this.pixelHeight);
