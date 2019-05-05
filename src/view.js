@@ -31,7 +31,7 @@ View.prototype.setPixleSize = function(){
 View.prototype.paintCells = function(){
   var self = this;
   var img = new Image();
-  img.src = "http://www.eurweb.com/wp-content/uploads/2012/04/kanye-west-19.jpg"
+  img.src = "https://upload.wikimedia.org/wikipedia/commons/1/11/Kanye_West_at_the_2009_Tribeca_Film_Festival.jpg"
   var bgColor = getComputedStyle( this.cellDiv ).getPropertyValue('background-color');
   
   this.clear();
