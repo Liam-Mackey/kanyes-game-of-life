@@ -8,8 +8,9 @@ body{
   margin-top: 20px;}
 
 #board{
-  background-image: url('https://flavorwire.files.wordpress.com/2015/03/kanye-west1.jpg');
-  width: 80vw;
+  background-image: url('https://static01.nyt.com/images/2018/05/04/world/04otr-1/04otr-1-jumbo.jpg');
+  width: 80vh;
+  background-size: cover;
   margin: 0 auto;
   text-align: center;
   outline: none;
