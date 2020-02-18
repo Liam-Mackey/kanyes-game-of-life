@@ -3,13 +3,13 @@ body{
 }
 
 #container{
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto;
   margin-top: 20px;}
 
 #board{
-  background-image: url('https://static01.nyt.com/images/2018/05/04/world/04otr-1/04otr-1-jumbo.jpg');
-  width: 80vh;
+  background-image: url('https://vibemylife.com/wp-content/uploads/2019/01/Japanese-fabric-company-apparently-suing-Kanye-West-for-a-sizable-sum-of-cash.jpg');
+  width: 90vw;
   background-size: cover;
   margin: 0 auto;
   text-align: center;

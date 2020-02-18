@@ -1,33 +1,36 @@
-var Board = function(cells){
-	this.coordinates = {};
+class Board {
+	constructor(cells, coordinates) {
+		this.coordinates = coordinates || {};
+		this.cells = cells;
+		let self = this
+		self.cells.forEach(function(cell){
+			cell.board = self;
+			self.coordinates[cell.key] = cell;
+		});
+		self.cells.forEach(this.assignNeighborCells.bind(this));
+	}
 
-	cells.forEach(function(cell){
-		cell.board = this;
-		this.coordinates[cell.key] = cell;
-	}.bind(this));
+	assignNeighborCells(cell) {
+		var self = this;
+		console.log(cell)
+		var keys = cell.neighborKeys();
 
-	cells.forEach(this.assignNeighborCells.bind(this));
-};
+		keys.forEach(function(key){
+			cell.neighbors.push(this.coordinates[key]);
+		}.bind(self));
 
-Board.prototype.assignNeighborCells = function(cell){
-	var self = this;
-	var keys = cell.neighborKeys();
+		cell.neighbors = cell.neighbors.filter(function(item){return item != undefined });
+	};
 
-	keys.forEach(function(key){
-		cell.neighbors.push(this.coordinates[key]);
-	}.bind(self));
+	getCellStatus(cell) {
+		return this.gameLogic(cell.isAlive, cell.aliveNeighborCount() )
+	};
 
-	cell.neighbors = cell.neighbors.filter(function(item){return item != undefined });
-};
+	gameLogic(isAlive, neighborCount) {
+		return (isAlive && neighborCount == 2 )|| neighborCount == 3;
+	};
 
-Board.prototype.getCellStatus = function(cell){
-	return this.gameLogic(cell.isAlive, cell.aliveNeighborCount() );
-};
-
-Board.prototype.gameLogic = function(isAlive, neighborCount){
-	return (isAlive && neighborCount == 2 )|| neighborCount == 3;
-};
-
-Board.prototype.shouldFlipCell = function(cell){
-	return this.getCellStatus(cell) != cell.isAlive;
-};
+	shouldFlipCell(cell) {
+		return this.getCellStatus(cell) != cell.isAlive;
+	};
+}

@@ -1,55 +1,58 @@
-var Game = function(params){
-	this.initialState;
-	this.cells;
-	this.board;
-	this.iterationCount = 0;
-	this.timeout;
-	this.rowCount;
-	this.columnCount;
-	this.boardCache = [];
+class Game {
+	constructor(params) {
+		this.initialState;
+		this.cells;
+		this.board;
+		this.iterationCount = 0;
+		this.timeout;
+		this.rowCount;
+		this.columnCount;
+		this.boardCache = [];
 
-	this.init(params);
-};
+		this.init(params);
+	}
 
-Game.prototype.init = function(params){
-	this.initialState = params ? params.initialState : '-----,' +
-						'--x--,' +
-						'--x--,' +
-						'--x--,' +
-						'-----,';
 
-	var input = inputParser.parse(this.initialState);
-	this.cells = input.cells;
-	this.rowCount = input.rowCount;
-	this.columnCount = input.columnCount;
+	init(params) {
+		this.initialState = params ? params.initialState : '-----,' +
+							'--x--,' +
+							'--x--,' +
+							'--x--,' +
+							'-----,';
 
-	this.board = new Board(this.cells);
-	this.timeout = params ? params.timeout : 100;
-};
+		const input = inputParser.parse(this.initialState);
+		this.cells = input.cells;
+		this.rowCount = input.rowCount;
+		this.columnCount = input.columnCount;
 
-Game.prototype.iterate = function(){
-	this.cells.map(function(cell){
-		return cell.board.shouldFlipCell(cell) ? cell : '';
-	}).filter(function(e){return e}).forEach(function(cell){
-		cell.isAlive = !cell.isAlive;
-	});
+		this.board = new Board(this.cells);
+		this.timeout = params ? params.timeout : 100;
+	};
 
-	this.iterationCount++;
-	return true;
-};
+	iterate() {
+		this.cells.map(function(cell){
+			return cell.board.shouldFlipCell(cell) ? cell : '';
+		}).filter(function(e){return e}).forEach(function(cell){
+			cell.isAlive = !cell.isAlive;
+		});
 
-Game.prototype.toString = function(){
-	var str = '';
-	var regex = new RegExp('.{1,' + this.rowCount + '}', "g");
-	this.cells.forEach(function(cell){
-		str = str + (cell.isAlive ? "x" : "-");
-	});
+		this.iterationCount++;
+		return true;
+	};
 
-	return str.match(regex).join(',');
+	toString() {
+		let str = '';
+		const regex = new RegExp('.{1,' + this.rowCount + '}', "g");
+		this.cells.forEach(function(cell){
+			str = str + (cell.isAlive ? "x" : "-");
+		});
 
-};
+		return str.match(regex).join(',');
 
-Game.prototype.shouldEndGame = function(){
-	var wasChanged = this.boardCache[this.iterationCount - 1].length != 0;
-	return wasChanged;
-};
+	};
+
+	shouldEndGame() {
+		const wasChanged = this.boardCache[this.iterationCount - 1].length != 0;
+		return wasChanged;
+	};
+}
